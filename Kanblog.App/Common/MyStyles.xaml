@@ -1,0 +1,48 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <DataTemplate x:Key="Story250x150ItemTemplate">
+        <Grid HorizontalAlignment="Left" Width="250" Height="150">
+            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}">
+                <Image Source="{Binding ImageUri}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Name}"/>
+            </Border>
+            <StackPanel VerticalAlignment="Bottom" Background="{StaticResource ListViewItemOverlayBackgroundThemeBrush}">
+                <TextBlock Text="{Binding Item.Name}" Foreground="{StaticResource ListViewItemOverlayForegroundThemeBrush}" Style="{StaticResource TitleTextStyle}" Height="60" Margin="15,0,15,0"/>
+                <TextBlock Text="{Binding Item.Abstract}" Foreground="{StaticResource ListViewItemOverlaySecondaryForegroundThemeBrush}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" Margin="15,0,15,10"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="Story80ItemTemplate">
+        <Grid Margin="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Width="60" Height="60">
+                <Image Source="{Binding ImageUri}" Stretch="UniformToFill"/>
+            </Border>
+            <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                <TextBlock Text="{Binding Item.Name}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>
+                <TextBlock Text="{Binding Item.Abstract}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <Style x:Key="PanoramaPanel" TargetType="ContentControl">
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+    </Style>
+
+    <Style x:Key="SnappedContainerScrollViewer" TargetType="ScrollViewer">
+        <Setter Property="Margin" Value="20,0,0,0"></Setter>
+        <Setter Property="Visibility" Value="Collapsed"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+        <Setter Property="HorizontalScrollMode" Value="Disabled"></Setter>
+    </Style>
+
+    <Style x:Key="SnappedContainerStackPanel" TargetType="StackPanel">
+        <Setter Property="Margin" Value="0,0,20,0"></Setter>
+    </Style>
+
+</ResourceDictionary>
